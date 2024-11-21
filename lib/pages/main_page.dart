@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:newsapp_project/pages/home_page.dart';
 import 'package:newsapp_project/style/textStyle.dart';
 
 class MainPage extends StatelessWidget {
@@ -62,9 +63,9 @@ little more of this world''',
     width: screenWidth * 0.6,
     child: ElevatedButton(
     onPressed: () {
-    // Navigator.of(context).push(
-    // MaterialPageRoute(builder: (context) => HomePage()),
-    // );
+    Navigator.of(context).push(
+    MaterialPageRoute(builder: (context) => HomePage()),
+    );
     },
     child: Text(
     "Get Started",

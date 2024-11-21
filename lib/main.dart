@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:newsapp_project/pages/home_page.dart';
 import 'package:newsapp_project/pages/main_page.dart';
 
 void main() {
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
        debugShowCheckedModeBanner: false,
-      home: MainPage(),
+      home: HomePage(),
     );
   }
 }
