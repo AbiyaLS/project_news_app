@@ -1,35 +1,43 @@
 import 'package:newsapp_project/models/category_model.dart';
 
-List<CategoryModel> getCategories() {
-  List<CategoryModel> category = [];
+List<CategoryModel> getCategories(){
+  List<CategoryModel> category=[];
+  CategoryModel categoryModel= CategoryModel();
 
-  category.add(CategoryModel()
-    ..categoryName = "World"
-    ..image = "images/world.jpg");
+  categoryModel.categoryName= "World";
+  categoryModel.image ="images/world.jpg";
+  category.add(categoryModel);
+  categoryModel=new CategoryModel();
 
-  category.add(CategoryModel()
-    ..categoryName = "Business"
-    ..image = "images/business.jpg");
+  categoryModel.categoryName= "Business";
+  categoryModel.image ="images/business.jpg";
+  category.add(categoryModel);
+  categoryModel=new CategoryModel();
 
-  category.add(CategoryModel()
-    ..categoryName = "Technology"
-    ..image = "images/tech.jpg");
+  categoryModel.categoryName= "Technology";
+  categoryModel.image ="images/tech.jpg";
+  category.add(categoryModel);
+  categoryModel=new CategoryModel();
 
-  category.add(CategoryModel()
-    ..categoryName = "Entertainment"
-    ..image = "images/entertainment.jpg");
+  categoryModel.categoryName= "Entertainment";
+  categoryModel.image ="images/entertainment.jpg";
+  category.add(categoryModel);
+  categoryModel=new CategoryModel();
 
-  category.add(CategoryModel()
-    ..categoryName = "Sports"
-    ..image = "images/sports.jpg");
+  categoryModel.categoryName= "Sports";
+  categoryModel.image ="images/sports.jpg";
+  category.add(categoryModel);
+  categoryModel=new CategoryModel();
 
-  category.add(CategoryModel()
-    ..categoryName = "Science"
-    ..image = "images/science.jpg");
+  categoryModel.categoryName= "Science";
+  categoryModel.image ="images/science.jpg";
+  category.add(categoryModel);
+  categoryModel=new CategoryModel();
 
-  category.add(CategoryModel()
-    ..categoryName = "Health"
-    ..image = "images/health.jpg");
+  categoryModel.categoryName= "Health";
+  categoryModel.image ="images/health.jpg";
+  category.add(categoryModel);
+  categoryModel=new CategoryModel();
 
   return category;
 }
