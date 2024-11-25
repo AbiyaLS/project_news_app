@@ -17,7 +17,7 @@ Widget buildImage(BuildContext context, String image, int index, String name) =>
         Container(
           height: MediaQuery.of(context).size.height * 0.07,
           padding: EdgeInsets.only(left: 10.0),
-          margin: EdgeInsets.only(top: 140),
+          margin: EdgeInsets.only(top: 170),
           width: MediaQuery.of(context).size.width,
           decoration: BoxDecoration(
               color: Colors.black38,

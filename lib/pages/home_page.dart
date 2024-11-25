@@ -32,6 +32,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: Colors.grey.shade100,
       appBar: AppBar(
@@ -55,7 +56,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             SizedBox(
-              height: 20,
+              height: 10,
             ),
             Padding(
               padding: const EdgeInsets.all(10.0),
@@ -97,6 +98,95 @@ class _HomePageState extends State<HomePage> {
                     })),
             SizedBox(height: 10,),
             buildIndicator(),
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text("Trending News",
+                    style: AppTextStyle.heading,
+                  ),
+                  Text(
+                    "View All",
+                    style: AppTextStyle.viewAll,
+                    selectionColor: Colors.indigo.shade700,
+                  )
+                ],),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+                child: Material(
+                  elevation: 3.0,
+                  color: Colors.grey.shade100,
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(vertical: 8.0,horizontal: 5.0),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(child: ClipRRect(borderRadius: BorderRadius.circular(10),child: Image.asset("images/pic1.jpg",height: screenHeight *0.18,width: screenWidth * 0.3,fit: BoxFit.fill,)),
+                            ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 10),
+                          child: Column(
+                            children: [
+                              Container(
+                                width: screenWidth/2,
+                                child: Text(
+                                  "Rui Costa outspirit breakway to win stage 15",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15),
+                                ),),
+                              Container(
+                                width: screenWidth/2,
+                                child: Text(
+                                  "Then a final kick to beat lennard Kaman",style: TextStyle(fontSize: 15,color: Colors.grey.shade600),
+                                ),),
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Material(
+                elevation: 3.0,
+                color: Colors.grey.shade100,
+                child: Padding(
+                  padding: EdgeInsets.symmetric(vertical: 8.0,horizontal: 5.0),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(child: ClipRRect(borderRadius: BorderRadius.circular(10),child: Image.asset("images/pic1.jpg",height: screenHeight *0.18,width: screenWidth * 0.3,fit: BoxFit.fill,)),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 10),
+                        child: Column(
+                          children: [
+                            Container(
+                              width: screenWidth/2,
+                              child: Text(
+                                "Rui Costa outspirit breakway to win stage 15",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15),
+                              ),),
+                            Container(
+                              width: screenWidth/2,
+                              child: Text(
+                                "Then a final kick to beat lennard Kaman",style: TextStyle(fontSize: 15,color: Colors.grey.shade600),
+                              ),),
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
       ),
