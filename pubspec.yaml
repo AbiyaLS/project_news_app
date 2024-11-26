@@ -37,6 +37,10 @@ dependencies:
   cupertino_icons: ^1.0.6
   carousel_slider:
   smooth_page_indicator:
+  http: ^1.2.2
+  cached_network_image:
+  webview_flutter: 
+
 
 dev_dependencies:
   flutter_test:
