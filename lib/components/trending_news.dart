@@ -1,10 +1,17 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class TrendingNews extends StatelessWidget {
-  String imageUrl;
-  String title;
-  String descript;
-   TrendingNews({super.key,required this.imageUrl, required this.title,required this.descript});
+  final String imageUrl;
+  final String title;
+  final String descript;
+
+  TrendingNews({
+    super.key,
+    required this.imageUrl,
+    required this.title,
+    required this.descript,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -14,9 +21,10 @@ class TrendingNews extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(10.0),
       child: Material(
-        elevation: 3.0,
+        elevation: 5.0,
         color: Colors.grey.shade100,
         borderRadius: BorderRadius.circular(10),
+
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
           child: Row(
@@ -25,11 +33,11 @@ class TrendingNews extends StatelessWidget {
               // News Image
               ClipRRect(
                 borderRadius: BorderRadius.circular(10),
-                child: Image.network(
-                  imageUrl,
+                child: CachedNetworkImage(
+                  imageUrl: imageUrl,
                   height: screenHeight * 0.18,
                   width: screenWidth * 0.3,
-                  fit: BoxFit.fill,
+                  fit: BoxFit.cover,
                 ),
               ),
               const SizedBox(width: 10),
@@ -41,12 +49,12 @@ class TrendingNews extends StatelessWidget {
                       title,
                       style: const TextStyle(
                         fontWeight: FontWeight.bold,
-                        fontSize: 15,
+                        fontSize: 16,
                       ),
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                     ),
-                    const SizedBox(height: 5), // Spacing between title and subtitle
+                    const SizedBox(height: 5),
                     Text(
                       descript,
                       style: TextStyle(

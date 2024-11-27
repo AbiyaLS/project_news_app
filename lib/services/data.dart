@@ -5,37 +5,37 @@ List<CategoryModel> getCategories(){
   CategoryModel categoryModel= CategoryModel();
 
   categoryModel.categoryName= "World";
-  categoryModel.image ="images/world.jpg";
+  categoryModel.image ="assets/world.jpg";
   category.add(categoryModel);
   categoryModel=new CategoryModel();
 
   categoryModel.categoryName= "Business";
-  categoryModel.image ="images/business.jpg";
+  categoryModel.image ="assets/business.jpg";
   category.add(categoryModel);
   categoryModel=new CategoryModel();
 
   categoryModel.categoryName= "Technology";
-  categoryModel.image ="images/tech.jpg";
+  categoryModel.image ="assets/tech.jpg";
   category.add(categoryModel);
   categoryModel=new CategoryModel();
 
   categoryModel.categoryName= "Entertainment";
-  categoryModel.image ="images/entertainment.jpg";
+  categoryModel.image ="assets/entertainment.jpg";
   category.add(categoryModel);
   categoryModel=new CategoryModel();
 
   categoryModel.categoryName= "Sports";
-  categoryModel.image ="images/sports.jpg";
+  categoryModel.image ="assets/sports.jpg";
   category.add(categoryModel);
   categoryModel=new CategoryModel();
 
   categoryModel.categoryName= "Science";
-  categoryModel.image ="images/science.jpg";
+  categoryModel.image ="assets/science.jpg";
   category.add(categoryModel);
   categoryModel=new CategoryModel();
 
   categoryModel.categoryName= "Health";
-  categoryModel.image ="images/health.jpg";
+  categoryModel.image ="assets/health.jpg";
   category.add(categoryModel);
   categoryModel=new CategoryModel();
 

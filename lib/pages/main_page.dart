@@ -26,7 +26,7 @@ class _MainPageState extends State<MainPage> {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(40),
                       child: Image.asset(
-                        "images/pic1.jpg", fit: BoxFit.fill,
+                        "assets/pic1.jpg", fit: BoxFit.fill,
                         height:screenHeight/1.7,
                       width: screenWidth,)
                                 ),

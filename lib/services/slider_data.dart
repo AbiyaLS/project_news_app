@@ -5,22 +5,22 @@ List<SliderModel> getSliders(){
   SliderModel sliderModel= SliderModel();
 
   sliderModel.sliderName= "Bow to the Authority of SilentForce";
-  sliderModel.sliderImage="images/world.jpg";
+  sliderModel.sliderImage="assets/world.jpg";
   slider.add(sliderModel);
   sliderModel=new SliderModel();
 
   sliderModel.sliderName= "Bow to the Authority of SilentForce";
-  sliderModel.sliderImage ="images/business.jpg";
+  sliderModel.sliderImage ="assets/business.jpg";
   slider.add(sliderModel);
   sliderModel=new SliderModel();
 
   sliderModel.sliderName= "Bow to the Authority of SilentForce";
-  sliderModel.sliderImage ="images/tech.jpg";
+  sliderModel.sliderImage ="assets/tech.jpg";
   slider.add(sliderModel);
   sliderModel=new SliderModel();
 
   sliderModel.sliderName= "Bow to the Authority of SilentForce";
-  sliderModel.sliderImage ="images/entertainment.jpg";
+  sliderModel.sliderImage ="assets/entertainment.jpg";
   slider.add(sliderModel);
   sliderModel=new SliderModel();
 

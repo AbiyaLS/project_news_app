@@ -11,6 +11,7 @@ import 'package:newsapp_project/services/news.dart';
 import 'package:newsapp_project/services/slider_data.dart';
 import 'package:newsapp_project/style/textStyle.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:lottie/lottie.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({super.key});
@@ -23,7 +24,7 @@ class _HomePageState extends State<HomePage> {
   List<CategoryModel> categories = [];
   List<SliderModel> sliders = [];
   List<ArticleModel> articles=[];
-  bool _isLoading=false;
+  bool _isLoading=true;
 
   int activeIndex = 0;
 
@@ -40,7 +41,7 @@ class _HomePageState extends State<HomePage> {
     await newsclass.getNews();
     articles=newsclass.news;
     setState(() {
-      _isLoading=true;
+      _isLoading=false;
     });
   }
 
@@ -48,95 +49,107 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
+    // print("Trending News: ${articles.length} articles loaded");
     return Scaffold(
-      backgroundColor: Colors.grey.shade100,
-      appBar: AppBar(
-        title: Text("News App"),
-      ),
-      body: _isLoading? Center(child: CircularProgressIndicator()) : SingleChildScrollView(
-        child: Column(
-          children: [
-            Container(
-              height: screenHeight * 0.1,
-              padding: EdgeInsets.only(left: 8),
-              child: ListView.builder(
-                physics: AlwaysScrollableScrollPhysics(),
-                scrollDirection: Axis.horizontal,
-                itemCount: categories.length,
+      // backgroundColor: Colors.grey.shade100,
+      body: _isLoading? Center(
+        child:
+        Container(constraints: BoxConstraints(
+          maxWidth: 250,  // Max width for the animation
+          maxHeight: 300, // Max height for the animation
+        ),child: Lottie.asset("assets/loading.json")),
+      ) : SafeArea(
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Container(
+                height: screenHeight * 0.1,
+                padding: EdgeInsets.only(left: 8),
+                child: ListView.builder(
+                  physics: AlwaysScrollableScrollPhysics(),
+                  scrollDirection: Axis.horizontal,
+                  itemCount: categories.length,
+                  itemBuilder: (context, index) {
+                    return CategoryTile(
+                      image: categories[index].image,
+                      categoryName: categories[index].categoryName,
+                    );
+                  },
+                ),
+              ),
+              SizedBox(
+                height: 5,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Breaking News",
+                      style: AppTextStyle.heading,
+                    ),
+                    Text(
+                      "View All",
+                      style: AppTextStyle.viewAll,
+                      selectionColor: Colors.indigo.shade700,
+                    )
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 8,
+              ),
+              CarouselSlider.builder(
+                  itemCount: sliders.length,
+                  itemBuilder: (context, index, realIndex) {
+                    String resultImage = sliders[index].sliderImage;
+                    String resultName = sliders[index].sliderName;
+                    return buildImage(context, resultImage, index, resultName);
+                  },
+                  options: CarouselOptions(
+                      height: screenHeight * 0.3,
+                      autoPlay: true,
+                      // viewportFraction: 1,
+                      enlargeCenterPage: true,
+                      enlargeStrategy: CenterPageEnlargeStrategy.height,
+                      onPageChanged: (index, reason) {
+                        setState(() {
+                          activeIndex = index;
+                        });
+                      })),
+              SizedBox(height: 10,),
+              buildIndicator(),
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text("Trending News",
+                      style: AppTextStyle.heading,
+                    ),
+                    Text(
+                      "View All",
+                      style: AppTextStyle.viewAll,
+                      selectionColor: Colors.indigo.shade700,
+                    )
+                  ],),
+              ),
+              ListView.builder(
+                shrinkWrap: true,
+                physics: ClampingScrollPhysics(),
+                itemCount: articles.length,
                 itemBuilder: (context, index) {
-                  return CategoryTile(
-                    image: categories[index].image,
-                    categoryName: categories[index].categoryName,
+                  return TrendingNews(
+                    imageUrl: articles[index].urlToImage!,
+                    title: articles[index].title!,
+                    descript: articles[index].description!,
                   );
                 },
-              ),
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    "Breaking News",
-                    style: AppTextStyle.heading,
-                  ),
-                  Text(
-                    "View All",
-                    style: AppTextStyle.viewAll,
-                    selectionColor: Colors.indigo.shade700,
-                  )
-                ],
-              ),
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            CarouselSlider.builder(
-                itemCount: sliders.length,
-                itemBuilder: (context, index, realIndex) {
-                  String resultImage = sliders[index].sliderImage;
-                  String resultName = sliders[index].sliderName;
-                  return buildImage(context, resultImage, index, resultName);
-                },
-                options: CarouselOptions(
-                    height: screenHeight * 0.3,
-                    autoPlay: true,
-                    // viewportFraction: 1,
-                    enlargeCenterPage: true,
-                    enlargeStrategy: CenterPageEnlargeStrategy.height,
-                    onPageChanged: (index, reason) {
-                      setState(() {
-                        activeIndex = index;
-                      });
-                    })),
-            SizedBox(height: 10,),
-            buildIndicator(),
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text("Trending News",
-                    style: AppTextStyle.heading,
-                  ),
-                  Text(
-                    "View All",
-                    style: AppTextStyle.viewAll,
-                    selectionColor: Colors.indigo.shade700,
-                  )
-                ],),
-            ),
-            ListView.builder(
-              shrinkWrap: true,
-                itemCount: articles.length,itemBuilder: (context,index){
-              return TrendingNews(imageUrl: articles[index].url!,
-                  title: articles[index].title!,
-                  descript:articles[index].description! );
-            })
-          ],
+              )
+        
+            ],
+          ),
         ),
       ),
     );
