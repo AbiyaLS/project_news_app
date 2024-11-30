@@ -40,6 +40,7 @@ class _HomePageState extends State<HomePage> {
     News newsclass=News();
     await newsclass.getNews();
     articles=newsclass.news;
+    print("Number of articles fetched: ${articles.length}");
     setState(() {
       _isLoading=false;
     });
@@ -48,15 +49,14 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
-    double screenWidth = MediaQuery.of(context).size.width;
-    // print("Trending News: ${articles.length} articles loaded");
+    // double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
-      // backgroundColor: Colors.grey.shade100,
+      appBar: AppBar(title: Text("News App"),),
       body: _isLoading? Center(
         child:
         Container(constraints: BoxConstraints(
-          maxWidth: 250,  // Max width for the animation
-          maxHeight: 300, // Max height for the animation
+          maxWidth: 250,
+          maxHeight: 300,
         ),child: Lottie.asset("assets/loading.json")),
       ) : SafeArea(
         child: SingleChildScrollView(
@@ -141,9 +141,10 @@ class _HomePageState extends State<HomePage> {
                 itemCount: articles.length,
                 itemBuilder: (context, index) {
                   return TrendingNews(
-                    imageUrl: articles[index].urlToImage!,
-                    title: articles[index].title!,
-                    descript: articles[index].description!,
+                    imageUrl: articles[index].urlToImage ?? 'https://via.placeholder.com/150',
+                    title: articles[index].title ?? 'No Title Available',
+                    descript: articles[index].description ?? 'No Description Available',
+                    url: articles[index].url ?? '',
                   );
                 },
               )
