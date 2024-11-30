@@ -32,10 +32,11 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     categories = getCategories();
-    sliders = getSliders();
+    getSliders();
     getNews();
   }
 
+  // for the Trending News section
   void getNews()async{
     News newsclass=News();
     await newsclass.getNews();
@@ -45,6 +46,18 @@ class _HomePageState extends State<HomePage> {
       _isLoading=false;
     });
   }
+
+  // for the Slider News section
+  void getSliders()async{
+    SliderData slidersdata= SliderData();
+    await slidersdata.getSliders();
+    sliders=slidersdata.slider;
+    print("Number of articles fetched: ${articles.length}");
+    setState(() {
+      _isLoading=false;
+    });
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -101,10 +114,10 @@ class _HomePageState extends State<HomePage> {
                 height: 8,
               ),
               CarouselSlider.builder(
-                  itemCount: sliders.length,
+                  itemCount: 5,
                   itemBuilder: (context, index, realIndex) {
-                    String resultImage = sliders[index].sliderImage;
-                    String resultName = sliders[index].sliderName;
+                    String resultImage = sliders[index].urlToImage!;
+                    String resultName = sliders[index].title!;
                     return buildImage(context, resultImage, index, resultName);
                   },
                   options: CarouselOptions(
@@ -118,7 +131,7 @@ class _HomePageState extends State<HomePage> {
                           activeIndex = index;
                         });
                       })),
-              SizedBox(height: 10,),
+              SizedBox(height: 20,),
               buildIndicator(),
               Padding(
                 padding: const EdgeInsets.all(10.0),
@@ -157,6 +170,6 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget buildIndicator() =>
-      AnimatedSmoothIndicator(activeIndex: activeIndex, count: sliders.length,
+      AnimatedSmoothIndicator(activeIndex: activeIndex, count: 5,
       effect: JumpingDotEffect(dotWidth: 10,dotHeight: 10,activeDotColor: Colors.indigo,dotColor: Colors.grey.shade400),);
 }

@@ -29,7 +29,7 @@ class TrendingNews extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: Material(
           elevation: 5.0,
-          color: Colors.grey.shade100,
+          // color: Colors.grey.shade100,
           borderRadius: BorderRadius.circular(10),
 
           child: Padding(
