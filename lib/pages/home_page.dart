@@ -6,6 +6,7 @@ import 'package:newsapp_project/components/trending_news.dart';
 import 'package:newsapp_project/models/article_model.dart';
 import 'package:newsapp_project/models/category_model.dart';
 import 'package:newsapp_project/models/slider_model.dart';
+import 'package:newsapp_project/pages/view_all_page.dart';
 import 'package:newsapp_project/services/data.dart';
 import 'package:newsapp_project/services/news.dart';
 import 'package:newsapp_project/services/slider_data.dart';
@@ -87,9 +88,7 @@ class _HomePageState extends State<HomePage> {
                       image: categories[index].image,
                       categoryName: categories[index].categoryName,
                     );
-                  },
-                ),
-              ),
+                  },),),
               SizedBox(
                 height: 5,
               ),
@@ -102,10 +101,15 @@ class _HomePageState extends State<HomePage> {
                       "Breaking News",
                       style: AppTextStyle.heading,
                     ),
-                    Text(
-                      "View All",
-                      style: AppTextStyle.viewAll,
-                      selectionColor: Colors.indigo.shade700,
+                    GestureDetector(
+                      onTap: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>ViewAllPage(news: "Breaking")));
+                      },
+                      child: Text(
+                        "View All",
+                        style: AppTextStyle.viewAll,
+                        selectionColor: Colors.indigo.shade700,
+                      ),
                     )
                   ],
                 ),
@@ -141,10 +145,15 @@ class _HomePageState extends State<HomePage> {
                     Text("Trending News",
                       style: AppTextStyle.heading,
                     ),
-                    Text(
-                      "View All",
-                      style: AppTextStyle.viewAll,
-                      selectionColor: Colors.indigo.shade700,
+                    GestureDetector(
+                      onTap: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>ViewAllPage(news: "Trending")));
+                      },
+                      child: Text(
+                        "View All",
+                        style: AppTextStyle.viewAll,
+                        selectionColor: Colors.indigo.shade700,
+                      ),
                     )
                   ],),
               ),

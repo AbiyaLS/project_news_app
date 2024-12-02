@@ -9,6 +9,7 @@ class SliderData {
         "https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=582c5d461d614004b8be432bad49c84b";
 
     try {
+      slider.clear();
       var response = await http.get(Uri.parse(url));
 
       if (response.statusCode == 200) {
@@ -27,6 +28,8 @@ class SliderData {
               slider.add(sliderModel);
             }
           });
+        } else {
+          print("API response error: ${jsonData["message"]}");
         }
       } else if (response.statusCode == 426) {
         print("Upgrade Required: Server requires protocol upgrade.");
