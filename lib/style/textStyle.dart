@@ -28,6 +28,11 @@ class AppTextStyle{
     fontWeight: FontWeight.bold,
     decoration: TextDecoration.underline,
     decorationColor: Colors.indigo
+  );
 
+  static const TextStyle appBarTest = TextStyle(
+    color: Colors.indigo,
+    fontSize: 18,
+    fontWeight: FontWeight.bold,
   );
 }

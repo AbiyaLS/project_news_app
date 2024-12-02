@@ -148,18 +148,20 @@ class _HomePageState extends State<HomePage> {
                     )
                   ],),
               ),
-              ListView.builder(
-                shrinkWrap: true,
-                physics: ClampingScrollPhysics(),
-                itemCount: articles.length,
-                itemBuilder: (context, index) {
-                  return TrendingNews(
-                    imageUrl: articles[index].urlToImage ?? 'https://via.placeholder.com/150',
-                    title: articles[index].title ?? 'No Title Available',
-                    descript: articles[index].description ?? 'No Description Available',
-                    url: articles[index].url ?? '',
-                  );
-                },
+              Container(
+                child: ListView.builder(
+                  shrinkWrap: true,
+                  physics: ClampingScrollPhysics(),
+                  itemCount: articles.length,
+                  itemBuilder: (context, index) {
+                    return TrendingNews(
+                      imageUrl: articles[index].urlToImage ?? 'https://via.placeholder.com/150',
+                      title: articles[index].title ?? 'No Title Available',
+                      descript: articles[index].description ?? 'No Description Available',
+                      url: articles[index].url ?? '',
+                    );
+                  },
+                ),
               )
         
             ],

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:newsapp_project/pages/category_news.dart';
+
 
 class CategoryTile extends StatelessWidget {
   final String image;
@@ -9,43 +11,48 @@ class CategoryTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(right: 16),
-      child: Stack(
-        children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(12),
-            child: Image.asset(
-              image,
-              fit: BoxFit.cover,  // Changed to BoxFit.cover
-              width: 130,
-              height: 70,
-            ),
-          ),
-          Container(
-            width: 130,
-            height: 70,
-            decoration: BoxDecoration(
-              color: Colors.black45,
+    return GestureDetector(
+      onTap: (){
+        Navigator.of(context).push(MaterialPageRoute(builder: (context)=>CategoryNews(name: categoryName,)));
+      },
+      child: Container(
+        margin: EdgeInsets.only(right: 16),
+        child: Stack(
+          children: [
+            ClipRRect(
               borderRadius: BorderRadius.circular(12),
-            ),
-            child: Center(
-              child: Padding(
-                padding: const EdgeInsets.all(4.0),  // Added padding to text
-                child: Text(
-                  categoryName,
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,  // Optional, makes text stand out
-                  ),
-                  textAlign: TextAlign.center,  // Centers the text
-                  overflow: TextOverflow.ellipsis,  // Handles long text
-                ),
+              child: Image.asset(
+                image,
+                fit: BoxFit.cover,  // Changed to BoxFit.cover
+                width: 130,
+                height: 70,
               ),
             ),
-          )
-        ],
+            Container(
+              width: 130,
+              height: 70,
+              decoration: BoxDecoration(
+                color: Colors.black45,
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: Center(
+                child: Padding(
+                  padding: const EdgeInsets.all(4.0),  // Added padding to text
+                  child: Text(
+                    categoryName,
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,  // Optional, makes text stand out
+                    ),
+                    textAlign: TextAlign.center,  // Centers the text
+                    overflow: TextOverflow.ellipsis,  // Handles long text
+                  ),
+                ),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
