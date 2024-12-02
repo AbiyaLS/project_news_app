@@ -49,7 +49,7 @@ class _MainPageState extends State<MainPage> {
                   borderRadius: BorderRadius.circular(40),
                   child: Container(
                     height: screenHeight * 0.07,
-                    width: screenWidth * 0.6,
+                    width: screenWidth * 0.75,
                     child: ElevatedButton(
                       onPressed: () {
                         Navigator.of(context).push(
@@ -65,7 +65,7 @@ class _MainPageState extends State<MainPage> {
                         ),
                       ),
                       style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(Colors.blue),
+                        backgroundColor: MaterialStateProperty.all(Colors.indigo),
                       ),
                     ),
                   ),

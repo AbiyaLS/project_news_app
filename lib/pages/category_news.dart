@@ -52,9 +52,10 @@ class _CategoryNewsState extends State<CategoryNews> {
           itemBuilder: (context, index) {
             final category = categories[index];
             return ShowCategory(
-              image: category.urlToImage ?? 'default_image_url',
-              desc: category.description ?? 'Description not available',
-              title: category.title ?? 'Title not available',
+              image: categories[index].urlToImage!,
+              desc: categories[index].description!,
+              title: categories[index].title!,
+              url: categories[index].url!,
             );
           },
         ),
