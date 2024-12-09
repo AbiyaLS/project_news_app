@@ -15,7 +15,6 @@ class _MainPageState extends State<MainPage> {
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
-      backgroundColor: Colors.grey.shade100,
       body: Container(
         margin: EdgeInsets.symmetric(horizontal: 10.0,vertical: 10.0),
         child: Column(

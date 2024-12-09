@@ -38,7 +38,7 @@ class _CategoryNewsState extends State<CategoryNews> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.name,),
+        title: Text(widget.name,style: TextStyle(fontWeight: FontWeight.bold,color: Colors.indigo),),
         centerTitle: true,
       ),
       body: _isLoading

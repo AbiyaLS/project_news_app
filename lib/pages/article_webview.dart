@@ -17,11 +17,15 @@ class _ArticleWebViewState extends State<ArticleWebView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          "News Article",
-          style: TextStyle(fontWeight: FontWeight.bold),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text("News"),
+            Text("Scope",style: TextStyle(color: Colors.indigo,fontWeight: FontWeight.bold),)
+          ],
         ),
         centerTitle: true,
+        elevation: 0,
         // backgroundColor: Colors.deepPurple,
         leading: IconButton(
           icon: Icon(Icons.arrow_back),

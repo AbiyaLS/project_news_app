@@ -65,13 +65,20 @@ class _HomePageState extends State<HomePage> {
     double screenHeight = MediaQuery.of(context).size.height;
     // double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
-      appBar: AppBar(title: Text("News App"),),
+      appBar: AppBar(
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text("News"),
+            Text("Scope",style: TextStyle(color: Colors.indigo,fontWeight: FontWeight.bold),)
+          ],
+        ),
+        centerTitle: true,
+        elevation: 0,
+      ),
       body: _isLoading? Center(
         child:
-        Container(constraints: BoxConstraints(
-          maxWidth: 250,
-          maxHeight: 300,
-        ),child: Lottie.asset("assets/loading.json")),
+       CircularProgressIndicator()
       ) : SafeArea(
         child: SingleChildScrollView(
           child: Column(
