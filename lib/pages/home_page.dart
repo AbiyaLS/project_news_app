@@ -190,4 +190,11 @@ class _HomePageState extends State<HomePage> {
   Widget buildIndicator() =>
       AnimatedSmoothIndicator(activeIndex: activeIndex, count: 5,
       effect: JumpingDotEffect(dotWidth: 10,dotHeight: 10,activeDotColor: Colors.indigo,dotColor: Colors.grey.shade400),);
+  @override
+  void dispose() {
+    super.dispose();
+    // Clean up any resources if used, such as WebView controller
+  }
 }
+
+

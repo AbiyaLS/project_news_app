@@ -6,7 +6,7 @@ class News {
 
   Future<void> getNews() async {
     String url =
-        "https://newsapi.org/v2/everything?q=tesla&from=2024-11-04&sortBy=publishedAt&apiKey=582c5d461d614004b8be432bad49c84b";
+        "https://newsapi.org/v2/everything?q=tesla&from=2024-11-18&sortBy=publishedAt&apiKey=582c5d461d614004b8be432bad49c84b";
 
     try {
       news.clear();

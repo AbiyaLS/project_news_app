@@ -31,13 +31,11 @@ class TrendingNews extends StatelessWidget {
           elevation: 5.0,
           // color: Colors.grey.shade100,
           borderRadius: BorderRadius.circular(10),
-
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-
                 ClipRRect(
                   borderRadius: BorderRadius.circular(10),
                   child: CachedNetworkImage(
